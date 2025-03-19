@@ -1,3 +1,9 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Prevents scrolling */
+  background-color: #f4f4f4;
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -11,12 +17,13 @@
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Topbar Styling */
 .topbar {
   background-color: #1e88e5; /* Blue */
   padding: 0.5rem 2rem; /* Reduce padding */
-  height: 30px;/* Set a fixed height */
+  height: 50px; /* Increased height */
   display: flex;
-  justify-content: space-between;
   align-items: center;
   color: white;
   position: fixed;
@@ -46,46 +53,88 @@
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
   font-size: 0.9rem;
 }
+
+/* Login Box Styling */
 .login-box {
-  width: 400px;
-  padding: 10px;
-  margin: 0 auto;
+  width: 420px;
+  padding: 20px;
+  margin: 80px auto; /* Added margin for better spacing */
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: white; /* White background */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for better visibility */
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h1 {
+  text-align: center;
+  margin-bottom: 3px; /* Reduced margin */
+  color: #0d47a1;
 }
 
 .login-box h2 {
   text-align: center;
+  margin-top: 5px; /* Reduced margin */
+  margin-bottom: 15px; /* Keep spacing for the subtitle */
+  color: #1565c0;
 }
-
+/* Input Group Styling */
 .input-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 15px;
 }
 
 .input-group label {
-  display: block;
-  margin-bottom: 5px;
+  flex: 1; /* Adjust label width */
+  font-weight: bold;
+  text-align: left;
+  margin-right: 10px;
 }
 
 .input-group input {
-  width: 100%;
-  padding: 8px;
+  flex: 2;
+  width: 25%;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
+/* Button Styling */
 button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4CAF50;
+  width: 50%; /* Reduced width */
+  padding: 8px; /* Reduced padding */
+  background-color: #1e88e5;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 14px; /* Reduced font size */
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #1565c0;
+}
+
+.forgot-password {
+  text-align: center; /* Center the text */
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.forgot-password a {
+  color: #1e88e5;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+.success-message {
+  color: green;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
