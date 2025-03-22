@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.container {
+    display: flex;
+    height: calc(100vh - 50px); /* Adjusted for top bar height */
+    width: 100vw;
+    margin-top: 50px; /* Pushes content below topbar */
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #2d3748;
+    color: #ecc94b;
+    padding: 25px;
+    height: calc(100vh - 50px); /* Sidebar also starts below topbar */
+    position: fixed;
+    top: 65px; /* Starts after topbar */
+    left: 0;
+    overflow-y: auto; /* Enables scrolling if content overflows */
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+    cursor: pointer;
+    padding-right: 20px;
+}
+
+.sidebar li:hover {
+    color: white;
+}
+
+.main-content {
+    margin-left: 250px; /* Ensures content starts after the sidebar */
+    flex-grow: 1;
+    background-color: #f7fafc;
+    padding: 40px;
+    min-height: calc(100vh - 50px); /* Ensures content does not go under topbar */
+    overflow-y: auto;
+}
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header input {
+    border: 1px solid #cbd5e0;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  .grid-container {
+    display: flex;
+    justify-content: center; /* Centers the cards */
+    gap: 20px; /* Adds space between the cards */
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+ 
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card1 {
+    width: 950px;  /* Smaller Card 1 */
+    height: 200px;
+    padding: 5px;
+}
+
+.card2 {
+    width: 350px;  /* Larger Card 2 */
+    height: 180px;
+    padding: 5px;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 5px;
+}
+
+.card1 h2 {
+    font-size: 60px; /* Increased font size */
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.card1 p {
+    font-size: 25px; /* Increased font size */
+    color: #4a5568;
+}
+
+.card-button {
+    background-color: #3182ce;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-top: 8px;
+    font-size: 14px;
+}
+.card-button:hover {
+    background-color: #2b6cb0;
+}
+
+.university-logo {
+    width: 100px; /* Adjust logo size */
+    height: auto;
+    margin-bottom: 10px;
+}
+  
+  .button {
+    background-color: #3182ce;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #2b6cb0;
+  }
+  
