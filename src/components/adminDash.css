@@ -4,29 +4,27 @@ body {
     padding: 0;
 }
 
-
-
 .container {
     display: flex;
-    height: calc(100vh - 50px); /* Adjusted for top bar height */
+    height: 100vh;
     width: 100vw;
-    margin-top: 50px; /* Pushes content below topbar */
 }
 
+/* Sidebar */
 .sidebar {
-    width: 200px;
+    width: 220px; /* Increased width slightly */
     background-color: #2d3748;
     color: #ffffff;
-    padding: 25px;
-    height: calc(100vh - 50px); /* Sidebar also starts below topbar */
+    padding: 20px;
+    height: 100vh;
     position: fixed;
-    top: 50px; /* Starts after topbar */
+    top: 50px;
     left: 0;
     overflow-y: auto; /* Enables scrolling if content overflows */
 }
 
 .sidebar h2 {
-    font-size: 30px;
+    font-size: 28px;
     color: #ecc94b;
     margin-bottom: 20px;
     text-align: left;
@@ -42,37 +40,47 @@ body {
 .sidebar li {
     margin-bottom: 15px;
     cursor: pointer;
-    padding-right: 20px;
-    transition: color 0.3s, background-color 0.3s;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
 }
 
 .sidebar li:hover {
     background-color: rgb(4, 143, 124);
     color: white;
-    padding: 8px;
-    border-radius: 2px;
 }
 
-  .header {
+/* Main Content */
+.main-container {
+    flex-grow: 1;
+    margin-left: 220px; /* Ensures content does not overlap sidebar */
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-  }
-  
-  .header input {
+}
+
+.header input {
     border: 1px solid #cbd5e0;
     padding: 8px;
     border-radius: 5px;
-  }
-  .grid-container {
+}
+
+/* Grid Layout */
+.grid-container {
     display: flex;
-    justify-content: center; /* Centers the cards */
-    gap: 20px; /* Adds space between the cards */
+    justify-content: center;
+    gap: 20px;
     flex-wrap: wrap;
     margin-top: 20px;
 }
- 
+
+/* Cards */
 .card {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 12px;
@@ -88,41 +96,36 @@ body {
     transition: transform 0.2s ease-in-out;
 }
 
-.card1 {
-    width: 700px;  
-    height: 200px;
-    padding: 5px;
-}
-
-.card2 {
-    width: 350px;  
-    height: 180px;
-    padding: 5px;
-}
-
 .card:hover {
     transform: scale(1.03);
 }
 
-.card-title {
-    font-size: 16px;
-    font-weight: bold;
-    color: #2d3748;
-    margin-bottom: 5px;
+/* Specific Card Styles */
+.card1 {
+    width: 700px;
+    height: 200px;
+    padding: 10px;
 }
 
 .card1 h2 {
-    font-size: 60px; /* Increased font size */
+    font-size: 60px;
     font-weight: bold;
     color: #2d3748;
     margin-bottom: 10px;
 }
 
 .card1 p {
-    font-size: 25px; /* Increased font size */
+    font-size: 25px;
     color: #4a5568;
 }
 
+.card2 {
+    width: 350px;
+    height: 180px;
+    padding: 10px;
+}
+
+/* Card Button */
 .card-button {
     background-color: #3182ce;
     color: white;
@@ -133,25 +136,67 @@ body {
     margin-top: 8px;
     font-size: 14px;
 }
+
 .card-button:hover {
     background-color: #2b6cb0;
 }
 
+/* Logo */
 .university-logo {
-    width: 100px; /* Adjust logo size */
+    width: 100px;
     height: auto;
     margin-bottom: 10px;
 }
-  
-  .button {
+
+/* General Button */
+.button {
     background-color: #3182ce;
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .button:hover {
+}
+
+.button:hover {
     background-color: #2b6cb0;
-  }
-  
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 180px;
+    }
+    
+    .main-container {
+        margin-left: 180px;
+    }
+    
+    .card1 {
+        width: 100%;
+    }
+    
+    .card2 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    
+    .main-container {
+        margin-left: 0;
+    }
+    
+    .grid-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card {
+        width: 90%;
+    }
+}
