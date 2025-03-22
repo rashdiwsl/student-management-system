@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom';
-import '../App.css';
+import './Login.css';
+import Topbar from '../components/Topbar';
+import Footer from '../components/Footer';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -35,7 +37,7 @@ function Login() {
 
   return (
     <div>
-      {message && <div className="message-box">{message}</div>} {/* Display message in a separate box */}
+    <Topbar /> 
       <div className="login-box">
         <h1>KDU SMS</h1>
         <h1>LOGIN</h1>
@@ -67,6 +69,7 @@ function Login() {
           <button type="submit" className="login-button">Login</button>
         </form>
       </div>
+      <Footer />
     </div>
   );
 }

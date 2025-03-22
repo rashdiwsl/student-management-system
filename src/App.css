@@ -2,8 +2,9 @@ html, body {
   height: 100%;
   margin: 0;
   overflow: hidden; /* Prevents scrolling */
-  background-color: #f4f4f4;
+  background-color: #e3f2fd; /* Light Blue */
 }
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -11,130 +12,9 @@ html, body {
   text-align: center;
 }
 
-.card {
-  padding: 2em;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Topbar Styling */
-.topbar {
-  background-color: #1e88e5; /* Blue */
-  padding: 0.5rem 2rem; /* Reduce padding */
-  height: 50px; /* Increased height */
-  display: flex;
-  align-items: center;
-  color: white;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 .logo-image {
   width: 40px; /* Adjust size as necessary */
   height: auto;
   margin-right: 10px; /* Space between the logo and the title */
   vertical-align: middle; /* Align logo with text */
-}
-
-.footer {
-  background-color: #263238;
-  color: white;
-  text-align: center;
-  padding: 0.8rem;
-  height: 30px;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-  font-size: 0.9rem;
-}
-
-/* Login Box Styling */
-.login-box {
-  width: 420px;
-  padding: 20px;
-  margin: 80px auto; /* Added margin for better spacing */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.login-box h1 {
-  text-align: center;
-  margin-bottom: 3px; /* Reduced margin */
-  color: #0d47a1;
-}
-
-.login-box h2 {
-  text-align: center;
-  margin-top: 5px; /* Reduced margin */
-  margin-bottom: 15px; /* Keep spacing for the subtitle */
-  color: #1565c0;
-}
-/* Input Group Styling */
-.input-group {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.input-group label {
-  flex: 1; /* Adjust label width */
-  font-weight: bold;
-  text-align: left;
-  margin-right: 10px;
-}
-
-.input-group input {
-  flex: 2;
-  width: 25%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Button Styling */
-button {
-  width: 50%; /* Reduced width */
-  padding: 8px; /* Reduced padding */
-  background-color: #1e88e5;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px; /* Reduced font size */
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background-color: #1565c0;
-}
-
-.forgot-password {
-  text-align: center; /* Center the text */
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-.forgot-password a {
-  color: #1e88e5;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.forgot-password a:hover {
-  text-decoration: underline;
-}
-.success-message {
-  color: green;
-  font-weight: bold;
-  margin-bottom: 10px;
 }

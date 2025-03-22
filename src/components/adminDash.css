@@ -20,7 +20,7 @@ body {
     padding: 25px;
     height: calc(100vh - 50px); /* Sidebar also starts below topbar */
     position: fixed;
-    top: 65px; /* Starts after topbar */
+    top: 50px; /* Starts after topbar */
     left: 0;
     overflow-y: auto; /* Enables scrolling if content overflows */
 }
@@ -47,15 +47,6 @@ body {
 
 .sidebar li:hover {
     color: white;
-}
-
-.main-content {
-    margin-left: 250px; /* Ensures content starts after the sidebar */
-    flex-grow: 1;
-    background-color: #f7fafc;
-    padding: 40px;
-    min-height: calc(100vh - 50px); /* Ensures content does not go under topbar */
-    overflow-y: auto;
 }
 
   .header {
@@ -94,13 +85,13 @@ body {
 }
 
 .card1 {
-    width: 950px;  /* Smaller Card 1 */
+    width: 700px;  
     height: 200px;
     padding: 5px;
 }
 
 .card2 {
-    width: 350px;  /* Larger Card 2 */
+    width: 350px;  
     height: 180px;
     padding: 5px;
 }
