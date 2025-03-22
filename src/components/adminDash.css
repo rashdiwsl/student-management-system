@@ -16,7 +16,7 @@ body {
 .sidebar {
     width: 200px;
     background-color: #2d3748;
-    color: #ecc94b;
+    color: #ffffff;
     padding: 25px;
     height: calc(100vh - 50px); /* Sidebar also starts below topbar */
     position: fixed;
@@ -26,8 +26,8 @@ body {
 }
 
 .sidebar h2 {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 30px;
+    color: #ecc94b;
     margin-bottom: 20px;
     text-align: left;
 }
@@ -43,10 +43,14 @@ body {
     margin-bottom: 15px;
     cursor: pointer;
     padding-right: 20px;
+    transition: color 0.3s, background-color 0.3s;
 }
 
 .sidebar li:hover {
+    background-color: rgb(4, 143, 124);
     color: white;
+    padding: 8px;
+    border-radius: 2px;
 }
 
   .header {

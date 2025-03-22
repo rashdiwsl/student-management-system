@@ -24,10 +24,8 @@ const RemoveStudent = () => {
       <div className="flex-1 flex flex-col">
         <Topbar />
         <div className="p-6 max-w-lg mx-auto">
-          <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
-          <p className="mb-6">Welcome to the Admin Dashboard.</p>
+          <h1 className="text-2xl font-bold mb-4">Remove Student</h1>
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4">Remove Student</h2>
             <form className="space-y-4">
               <div>
                 <label className="block text-sm font-medium">ID Number</label>
