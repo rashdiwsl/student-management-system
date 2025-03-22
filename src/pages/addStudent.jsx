@@ -43,7 +43,7 @@ function AddStudent() {
   };
 
   const cardStyle = {
-    backgroundColor: "#d9d9d9",
+    backgroundColor: "#e6e6e6",
     padding: "20px",
     borderRadius: "10px",
     boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
