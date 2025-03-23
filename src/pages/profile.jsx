@@ -98,7 +98,7 @@ const styles = {
   },
   profileCard: {
     display: "fixed",
-    backgroundColor: "#e6e6e6",
+    backgroundColor: "#cfcfcf",
     padding: "50px",
     borderRadius: "10px",
     width: "800px",

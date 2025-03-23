@@ -2,16 +2,16 @@ import React, { useState } from "react";
 
 const Sem1 = () => {
   const [courses, setCourses] = useState([
-    { id: "SE3032", name: "Software Construction Technologies and Tools" },
-    { id: "CS3092", name: "Computer and Network Security" },
-    { id: "SE3022", name: "Software Modeling" },
+    { id: "SE1010", name: "Introduction to Programming" },
+    { id: "CS1020", name: "Computer Organization" },
+    { id: "MA1030", name: "Mathematics for Computing" },
   ]);
 
   const [courseId, setCourseId] = useState("");
   const [courseName, setCourseName] = useState("");
 
   const addCourse = () => {
-    if (courseId && courseName) {
+    if (courseId.trim() !== "" && courseName.trim() !== "") {
       setCourses([...courses, { id: courseId, name: courseName }]);
       setCourseId("");
       setCourseName("");
@@ -19,31 +19,45 @@ const Sem1 = () => {
   };
 
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", padding: "20px", background: "#f2f6fc" }}>
-      <div style={{ background: "#ddd", padding: "20px", borderRadius: "5px" }}>
-        <h2>Semester 5</h2>
-        <input
-          type="text"
-          placeholder="Course ID"
-          value={courseId}
-          onChange={(e) => setCourseId(e.target.value)}
-          style={{ padding: "10px", marginRight: "10px", border: "1px solid #ccc" }}
-        />
-        <input
-          type="text"
-          placeholder="Course"
-          value={courseName}
-          onChange={(e) => setCourseName(e.target.value)}
-          style={{ padding: "10px", marginRight: "10px", border: "1px solid #ccc" }}
-        />
-        <button
-          onClick={addCourse}
-          style={{ padding: "10px", background: "#007bff", color: "#fff", border: "none", cursor: "pointer" }}
-        >
-          Add Course
-        </button>
+    <div style={{ fontFamily: "Arial, sans-serif", padding: "20px", minHeight: "100vh", marginTop: "80px" }}>  {/* Added marginTop */}
+      <div style={{ background: "#ddd", padding: "20px", borderRadius: "5px", maxWidth: "600px", margin: "auto" }}>
+        <h2>Semester 1</h2>
+        
+        {/* Input Fields */}
+        <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
+          <input
+            type="text"
+            placeholder="Course ID"
+            value={courseId}
+            onChange={(e) => setCourseId(e.target.value)}
+            style={{ flex: 1, padding: "10px", border: "1px solid #ccc", borderRadius: "5px" }}
+          />
+          <input
+            type="text"
+            placeholder="Course"
+            value={courseName}
+            onChange={(e) => setCourseName(e.target.value)}
+            style={{ flex: 2, padding: "10px", border: "1px solid #ccc", borderRadius: "5px" }}
+          />
+          <button
+            onClick={addCourse}
+            style={{
+              padding: "10px",
+              background: "#007bff",
+              color: "#fff",
+              border: "none",
+              cursor: "pointer",
+              borderRadius: "5px",
+              fontWeight: "bold"
+            }}
+          >
+            Add Course
+          </button>
+        </div>
       </div>
-      <table style={{ width: "100%", marginTop: "20px", borderCollapse: "collapse" }}>
+
+      {/* Table Displaying Courses */}
+      <table style={{ width: "80%", margin: "20px auto", borderCollapse: "collapse" }}>
         <thead>
           <tr style={{ background: "#007bff", color: "white" }}>
             <th style={{ padding: "10px", textAlign: "left" }}>Course ID</th>
@@ -52,8 +66,8 @@ const Sem1 = () => {
         </thead>
         <tbody>
           {courses.map((course, index) => (
-            <tr key={index} style={{ background: index % 2 === 0 ? "#fff" : "#f2f2f2" }}>
-              <td style={{ padding: "10px", fontWeight: course.id === "SE3022" ? "bold" : "normal" }}>{course.id}</td>
+            <tr key={index} style={{ background: index % 2 === 0 ? "#fff" : "#dbd9d9" }}>
+              <td style={{ padding: "10px", fontWeight: "bold" }}>{course.id}</td>
               <td style={{ padding: "10px" }}>{course.name}</td>
             </tr>
           ))}
