@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from "../components/Footer";
 
 const Sem8 = () => {
   const [courses, setCourses] = useState([
@@ -73,6 +74,7 @@ const Sem8 = () => {
           ))}
         </tbody>
       </table>
+      <Footer />
     </div>
   );
 };
