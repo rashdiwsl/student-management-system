@@ -2,16 +2,19 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/sidebar";
 import Topbar from "./components/Topbar";
+import Footer from "./components/Footer";
 import AdminDash from "./components/AdminDash";
+import stuDash from "./components/stuDash";
 import AddStudent from "./pages/addStudent";
 import RemoveStudent from "./pages/removeStudent";
 import ListStudent from "./pages/listStudent";
 import Modify from "./pages/modify";
 import Profile from "./pages/profile";
 import Login from "./components/login";
+import StuLogin from "./components/stuLogin"; 
 import Maintain from "./pages/maintain";
 import Sem1 from "./pages/sem1";
-import Sem2 from "./pages/Sem2";
+import Sem2 from "./pages/sem2";
 import Sem3 from "./pages/sem3";
 import Sem4 from "./pages/sem4";
 import Sem5 from "./pages/sem5";
@@ -23,10 +26,25 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Login Page (No Sidebar/Topbar) */}
+        {/* Login Pages (No Sidebar/Topbar) */}
         <Route path="/" element={<Login />} />
+        <Route path="/stuLogin" element={<StuLogin />} /> 
 
-        {/* Routes that require Sidebar and Topbar */}
+        {/* Student Dashboard (With Topbar & Footer, No Sidebar) */}
+        <Route
+          path="/stuDash"
+          element={
+            <div className="app-container flex flex-col h-screen">
+              <Topbar />
+              <div className="flex-1 p-4">
+                <stuDash />
+              </div>
+              <Footer />
+            </div>
+          }
+        />
+
+        {/* Admin & General Routes (With Sidebar & Topbar) */}
         <Route
           path="/*"
           element={
@@ -34,16 +52,17 @@ function App() {
               <Sidebar />
               <div className="flex flex-col flex-1">
                 <Topbar />
-                <div style={{ padding: "20px", paddingTop: "80px" }}>
+                <div className="p-4">
                   <Routes>
                     <Route path="/admindash" element={<AdminDash />} />
+                    <Route path="/studash" element={<stuDash />} />
                     <Route path="/add-student" element={<AddStudent />} />
                     <Route path="/remove-student" element={<RemoveStudent />} />
                     <Route path="/list-student" element={<ListStudent />} />
                     <Route path="/course-history" element={<Maintain />} />
                     <Route path="/modify-courses" element={<Modify />} />
                     <Route path="/profile" element={<Profile />} />
-                    
+
                     {/* Semester Pages */}
                     <Route path="/sem1" element={<Sem1 />} />
                     <Route path="/sem2" element={<Sem2 />} />

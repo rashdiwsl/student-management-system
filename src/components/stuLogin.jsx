@@ -1,48 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
 import Topbar from '../components/Topbar';
 import Footer from '../components/Footer';
 
-function Login() {
+function StuLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
-  // Allowed users
-  const validUsers = {
-    "stu1": "098"
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (validUsers[username] && validUsers[username] === password) {
-      setMessage("Login successful.");
-
+    if (username === "stu1" && password === "098") {
+      setMessage("Login successful. Redirecting to Student Dashboard...");
       setTimeout(() => {
-        if (username === "stu1") {
-          navigate('/stuDash'); // Navigate to student dashboard
-        }
-        setMessage(''); // Clear message after navigation
-      }, 1500); // Delay navigation for 1.5 seconds to show the message
+        navigate('/stuDash'); 
+      }, 1500);
     } else {
-      setMessage('Incorrect credentials. Please try again.');
+      setMessage("Incorrect username or password. Please try again.");
     }
-  };
-
-  const handleStudentLoginRedirect = () => {
-    navigate('/stuLogin'); // Navigate to the student login page
   };
 
   return (
     <div>
       <Topbar />
       <div className="login-box">
-        <h1>KDU SMS</h1>
-        <h1>LOGIN</h1>
-        <h2>Login to your Account</h2>
+        <h1>Student Login</h1>
+        <h2>Enter your credentials</h2>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="username">Username</label>
@@ -64,23 +49,13 @@ function Login() {
               required
             />
           </div>
-          <div className="forgot-password">
-            Forgot Password? <a href="/forgot-password">Click Here</a>
-          </div>
           <button type="submit" className="login-button">Login</button>
         </form>
+        {message && <p className="message">{message}</p>} 
       </div>
-
-      {/* Student Login Button outside of the login box */}
-      <div className="student-login-outside">
-        <button onClick={handleStudentLoginRedirect} className="student-login-button">
-          Student Login
-        </button>
-      </div>
-
       <Footer />
     </div>
   );
 }
 
-export default Login;
+export default StuLogin;

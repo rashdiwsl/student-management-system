@@ -1,15 +1,20 @@
 import React from 'react';
 import Topbarnew from './topbarnew';
-function StudentDashboard() {
+import Sidebarnew from './sidebarnew'; 
+import Footer from './Footer'; 
+
+function StuDash() {
   return (
     <div>
-        <Topbarnew/>
-      <h1>Student Dashboard</h1>
-      <p>Welcome, Student! You have limited access.</p>
+      <Sidebarnew /> 
+      <Topbarnew />
+      <div className="content">
+        <h1>Student Dashboard</h1>
+        <p>Welcome, Student! You have limited access.</p>
+      </div>
       <Footer />
     </div>
-    
   );
 }
 
-export default StudentDashboard;
+export default StuDash;
