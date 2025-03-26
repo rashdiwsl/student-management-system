@@ -8,11 +8,12 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false); // State for toggling password visibility
   const navigate = useNavigate();
 
   // Allowed users
   const validUsers = {
-    "stu1": "098"
+    "admin1": "123"
   };
 
   const handleSubmit = (e) => {
@@ -22,8 +23,8 @@ function Login() {
       setMessage("Login successful.");
 
       setTimeout(() => {
-        if (username === "stu1") {
-          navigate('/stuDash'); // Navigate to student dashboard
+        if (username === "admin1") {
+          navigate('/adminDash'); // Navigate to admin dashboard
         }
         setMessage(''); // Clear message after navigation
       }, 1500); // Delay navigation for 1.5 seconds to show the message
@@ -36,33 +37,50 @@ function Login() {
     navigate('/stuLogin'); // Navigate to the student login page
   };
 
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible); // Toggle the state for password visibility
+  };
+
   return (
     <div>
       <Topbar />
       <div className="login-box">
         <h1>KDU SMS</h1>
-        <h1>LOGIN</h1>
-        <h2>Login to your Account</h2>
+        <h2>LOGIN</h2>
+        <p>Login to your Account</p>
+        {message && <div className="message">{message}</div>}
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
+            <div className="input-container">
+              <input
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                aria-label="Enter your username"
+              />
+              <i className="fas fa-user"></i> {/* FontAwesome User Icon */}
+            </div>
           </div>
           <div className="input-group">
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <div className="input-container">
+              <input
+                type={passwordVisible ? 'text' : 'password'} // Toggle between text and password
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                aria-label="Enter your password"
+              />
+              <i 
+                className={`fas ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`} 
+                onClick={togglePasswordVisibility} 
+                style={{ cursor: 'pointer' }} 
+              ></i> {/* Eye Icon to toggle password visibility */}
+            </div>
           </div>
           <div className="forgot-password">
             Forgot Password? <a href="/forgot-password">Click Here</a>

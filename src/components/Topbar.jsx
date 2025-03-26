@@ -3,8 +3,9 @@ import logo from "../assets/logo.png"; // Adjust path as needed
 
 function Topbar() {
   const topbarStyle = {
-    backgroundColor: "#1e88e5", // Blue
-    padding: "0.5rem 2rem",
+    background: "linear-gradient(to right, #0f172a, #1b3a57)", 
+    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", 
+    padding: "0.5rem 2rem", 
     height: "50px",
     display: "flex",
     alignItems: "center",
@@ -13,7 +14,6 @@ function Topbar() {
     width: "100%",
     top: 0,
     left: 0,
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
   };
 
   const logoStyle = {

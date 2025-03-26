@@ -27,7 +27,6 @@ function StuLogin() {
       <Topbar />
       <div className="login-box">
         <h1>Student Login</h1>
-        <h2>Enter your credentials</h2>
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="username">Username</label>

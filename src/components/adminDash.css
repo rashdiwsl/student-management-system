@@ -12,19 +12,20 @@ body {
 
 /* Sidebar */
 .sidebar {
-    width: 220px; /* Increased width slightly */
-    background-color: #2d3748;
+    width: 220px;
+    background-color: #222831;
     color: #ffffff;
     padding: 20px;
     height: 100vh;
     position: fixed;
     top: 50px;
     left: 0;
-    overflow-y: auto; /* Enables scrolling if content overflows */
+    overflow-y: auto;
 }
 
 .sidebar h2 {
     font-size: 28px;
+    font-family: "Poppins", sans-serif;
     color: #ecc94b;
     margin-bottom: 20px;
     text-align: left;
@@ -45,6 +46,8 @@ body {
     border-radius: 5px;
 }
 
+/* Active Sidebar Item */
+.sidebar li.active,
 .sidebar li:hover {
     background-color: rgb(4, 143, 124);
     color: white;
@@ -53,9 +56,8 @@ body {
 /* Main Content */
 .main-container {
     flex-grow: 1;
-    margin-left: 220px; /* Ensures content does not overlap sidebar */
+    margin-left: 220px;
     padding: 20px;
-    background-color: #f8f9fa;
 }
 
 .header {
@@ -93,11 +95,12 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .card:hover {
     transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Specific Card Styles */
@@ -135,6 +138,7 @@ body {
     border: none;
     margin-top: 8px;
     font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .card-button:hover {
@@ -155,6 +159,7 @@ body {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .button:hover {
@@ -171,11 +176,7 @@ body {
         margin-left: 180px;
     }
     
-    .card1 {
-        width: 100%;
-    }
-    
-    .card2 {
+    .card1, .card2 {
         width: 100%;
     }
 }
