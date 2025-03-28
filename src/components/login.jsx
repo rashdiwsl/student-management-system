@@ -82,9 +82,9 @@ function Login() {
               ></i> {/* Eye Icon to toggle password visibility */}
             </div>
           </div>
-          <div className="forgot-password">
-            Forgot Password? <a href="/forgot-password">Click Here</a>
-          </div>
+          <p className="forgot-password">
+    Forgot Password? <a href="/forgot-password" className="text-blue-500">Click Here</a>
+</p>
           <button type="submit" className="login-button">Login</button>
         </form>
       </div>
