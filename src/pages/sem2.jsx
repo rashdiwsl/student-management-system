@@ -21,7 +21,7 @@ const Sem2 = () => {
 
   return (
     <div style={{ fontFamily: "Arial, sans-serif", padding: "20px", minHeight: "100vh", marginTop: "80px" }}>
-      <div style={{ background: "#ddd", padding: "20px", borderRadius: "5px", maxWidth: "600px", margin: "auto" }}>
+      <div style={{ background: "#f7f7f7", padding: "20px", borderRadius: "5px", maxWidth: "600px", margin: "auto" }}>
         <h2>Semester 2</h2>
         
         {/* Input Fields */}
