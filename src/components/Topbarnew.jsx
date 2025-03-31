@@ -1,31 +1,36 @@
-import "../App.css"; // Correct relative path
-import { useState } from "react";
+import React from "react";
+import logo from "../assets/logo.png"; // Adjust path as needed
 
 function Topbarnew() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const topbarStyle = {
+    background: "linear-gradient(to right, #0f172a, #1b3a57)", 
+    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", 
+    padding: "0.5rem 2rem", 
+    height: "50px",
+    display: "flex",
+    alignItems: "center",
+    color: "white",
+    position: "fixed",
+    width: "100%",
+    top: 0,
+    left: 0,
+  };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log("Searching for:", searchTerm);
-    // Add logic here to handle search functionality
+  const logoStyle = {
+    width: "40px", // Adjust logo size
+    height: "40px",
+    marginRight: "10px",
+  };
+
+  const titleStyle = {
+    fontSize: "1.5rem",
+    fontWeight: "bold",
   };
 
   return (
-    <header className="topbarnew">
-      <div className="logo-container">
-        <img src={logo} alt="Logo" className="logo-image" />
-        <h2 className="logo">Faculty Of Computing</h2>
-      </div>
-      <form className="search-form" onSubmit={handleSearch}>
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="search-input"
-        />
-        <button type="submit" className="search-button">Search</button>
-      </form>
+    <header style={topbarStyle}>
+      <img src={logo} alt="Logo" style={logoStyle} />
+      <h2 style={titleStyle}>Faculty Of Computing</h2>
     </header>
   );
 }
