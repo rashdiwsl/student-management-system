@@ -1,0 +1,97 @@
+/* Sidebar Container */
+.sidebar {
+  width: 230px; /* Slightly wider for better spacing */
+  background-color: #2b2d42; /* Darker background for a modern look */
+  color: #ffffff;
+  padding: 20px;
+  height: calc(
+    100vh - 50px
+  ); /* Subtracting the topbar height from full viewport height */
+  position: fixed;
+  top: 50px; /* Push sidebar below the topbar */
+  left: 0;
+  overflow-y: auto;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Adding subtle shadow for depth */
+  transition: width 0.3s ease-in-out; /* Smooth transition for width change */
+}
+
+/* Sidebar Heading */
+.sidebar h2 {
+  font-size: 28px;
+  font-family: "Poppins";
+  color: #f7b731; /* Golden color for heading */
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Sidebar Menu List */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+/* Sidebar Menu Item */
+.sidebar li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 10px; /* Rounded corners */
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 16px; /* Adjust font size for readability */
+  font-weight: 500;
+}
+
+/* Sidebar Menu Item Icon */
+.sidebar li svg {
+  margin-right: 15px; /* Space between icon and text */
+  font-size: 20px;
+  transition: transform 0.3s ease; /* Smooth hover effect for icons */
+}
+
+/* Hover and Active Item Styles */
+.sidebar li:hover,
+.sidebar li.active {
+  background-color: #4ecca3; /* Subtle hover effect */
+  color: white;
+}
+
+.sidebar li:hover svg {
+  transform: scale(1.2); /* Icon grows slightly on hover */
+}
+
+/* Special Styling for Logout */
+.sidebar li.logout-icon svg {
+  color: red; /* Red color for logout icon */
+}
+
+.sidebar li.logout-icon:hover {
+  background-color: #ff4d4d; /* Red background for hover */
+  color: white;
+}
+
+/* Sidebar Responsive (For smaller screens) */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 70px; /* Reduced width for mobile view */
+    transition: width 0.3s ease-in-out;
+  }
+
+  .sidebar h2 {
+    display: none; /* Hide heading in mobile view */
+  }
+
+  .sidebar li {
+    justify-content: center;
+  }
+
+  .sidebar li.active,
+  .sidebar li:hover {
+    background-color: #4ecca3;
+    color: white;
+  }
+}
