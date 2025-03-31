@@ -95,20 +95,7 @@ const Profile = () => {
         <Sidebar />
         <div style={styles.main}>
           <div style={styles.profileCard}>
-          {/*   <div>
-              <label htmlFor="profile-pic-upload">
-                <img src={profilePic} alt="Avatar" style={styles.avatar} />
-              </label>
-              {isEditing && (
-                <input
-                  id="profile-pic-upload"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleProfilePicChange}
-                  style={{ display: "none" }}
-                />
-              )}
-            </div> */}
+
             <div style={styles.details}>
               <div style={styles.inputGroup}>
                 <label style={styles.label}>Username</label>
