@@ -7,9 +7,9 @@ function Topbar() {
   const navigate = useNavigate(); // Initialize navigation
 
   const topbarStyle = {
-    background: "linear-gradient(to right, #0f172a, #1b3a57)", 
-    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", 
-    padding: "0.5rem 2rem", 
+    background: "linear-gradient(to right, #0f172a, #1b3a57)",
+    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+    padding: "0.5rem 2rem",
     height: "50px",
     display: "flex",
     alignItems: "center",
@@ -52,11 +52,14 @@ function Topbar() {
         <img src={logo} alt="Logo" style={logoStyle} />
         <h2 style={titleStyle}>Faculty Of Computing</h2>
       </div>
-      <div 
-        style={logoutContainerStyle} 
-        onClick={() => navigate("/")} // Log out action
-        onMouseEnter={(e) => e.target.style.color = "#8b0000"} // Dark red on hover
-        onMouseLeave={(e) => e.target.style.color = "#ed2d2d"} // Revert back to pick red on mouse leave
+      <div
+        style={logoutContainerStyle}
+        onClick={() => {
+          localStorage.removeItem("authToken"); // Clear JWT token from local storage
+          navigate("/"); // Redirect to home page
+        }}
+        onMouseEnter={(e) => (e.target.style.color = "#8b0000")}
+        onMouseLeave={(e) => (e.target.style.color = "#ed2d2d")}
       >
         <FaSignOutAlt style={{ fontSize: "1.5rem" }} />
         <span style={logoutTextStyle}>Log out</span>
