@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Sidebar from "./components/sidebar";
+import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
 import Footer from "./components/Footer";
-import AdminDash from "./components/AdminDash";
+import AdminDash from "./components/adminDash";
 import stuDash from "./components/stuDash";
 import AddStudent from "./pages/addStudent";
 import RemoveStudent from "./pages/removeStudent";
@@ -21,6 +21,8 @@ import Sem5 from "./pages/sem5";
 import Sem6 from "./pages/sem6";
 import Sem7 from "./pages/sem7";
 import Sem8 from "./pages/sem8";
+import Sidebarnew from "./components/sidebarnew";
+import Register from "./components/register"; 
 
 function App() {
   return (
@@ -28,12 +30,15 @@ function App() {
       <Routes>
         {/* Login Pages (No Sidebar/Topbar) */}
         <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register/>} />
         <Route path="/stuLogin" element={<StuLogin />} /> 
 
         {/* Student Dashboard (With Topbar & Footer, No Sidebar) */}
         <Route
           path="/stuDash"
           element={
+            <div className="app-container flex h-screen">
+              <Sidebarnew />
             <div className="app-container flex flex-col h-screen">
               <Topbar />
               <div className="flex-1 p-4">
@@ -41,6 +46,7 @@ function App() {
               </div>
               <Footer />
             </div>
+           </div>
           }
         />
 
