@@ -95,7 +95,7 @@ const Profile = () => {
         <Sidebar />
         <div style={styles.main}>
           <div style={styles.profileCard}>
-            <div>
+          {/*   <div>
               <label htmlFor="profile-pic-upload">
                 <img src={profilePic} alt="Avatar" style={styles.avatar} />
               </label>
@@ -108,7 +108,7 @@ const Profile = () => {
                   style={{ display: "none" }}
                 />
               )}
-            </div>
+            </div> */}
             <div style={styles.details}>
               <div style={styles.inputGroup}>
                 <label style={styles.label}>Username</label>
