@@ -95,3 +95,9 @@
     color: white;
   }
 }
+
+.sidebar li:hover,
+.sidebar li.active {
+  background-color: #4ecca3; /* Subtle hover effect */
+  color: white;
+}
