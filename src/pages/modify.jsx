@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";  
-import Sidebar from "../components/sidebar";
+import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 import Footer from "../components/Footer";
 
-const yearSemesters = {
-  "1st Year": ["Semester 1", "Semester 2"],
-  "2nd Year": ["Semester 3", "Semester 4"],
-  "3rd Year": ["Semester 5", "Semester 6"],
-  "4th Year": ["Semester 7", "Semester 8"]
-};
+const semesters = [
+  "Semester 1", "Semester 2", "Semester 3", "Semester 4", 
+  "Semester 5", "Semester 6", "Semester 7", "Semester 8"
+];
 
 function Modify() {
-  const [selectedYear, setSelectedYear] = useState("1st Year"); // Default Year
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const navigate = useNavigate();
 
@@ -26,57 +23,44 @@ function Modify() {
       <div className="flex flex-col flex-1">
         <Topbar />
         <div style={{ padding: "20px", minHeight: "100vh", textAlign: "center", paddingTop: "80px" }}>
-          <h1 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "20px" }}>
+          <h1 style={{ fontSize: "26px", fontWeight: "bold", marginBottom: "30px", color: "#333" }}>
             Modify Student Courses
           </h1>
 
-          {/* Dropdown List for Selecting Year */}
-          <select
-            onChange={(e) => setSelectedYear(e.target.value)}
-            value={selectedYear}
-            style={{
-              padding: "10px",
-              fontSize: "16px",
-              marginBottom: "20px",
-              borderRadius: "4px",
-              cursor: "pointer",
-              border: "1px solid #ccc"
-            }}
-          >
-            {Object.keys(yearSemesters).map((year, index) => (
-              <option key={index} value={year}>{year}</option>
-            ))}
-          </select>
-
-          {/* Semester Buttons Based on Selected Year */}
+          {/* Semester Buttons */}
           <div style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", // Flexibility for mobile
             gap: "30px",
-            backgroundColor: "#cfcfcf",
+            backgroundColor: "#ffffff",
             padding: "50px",
-            borderRadius: "8px",
-            maxWidth: "800px",
-            margin: "auto"
+            borderRadius: "15px",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+            maxWidth: "900px",
+            margin: "auto",
+            transition: "all 0.3s ease",
           }}>
-            {yearSemesters[selectedYear].map((semester, index) => (
+            {semesters.map((semester, index) => (
               <button
                 key={index}
                 style={{
-                  backgroundColor: hoveredIndex === index ? "#004b99" : "#0066cc",
+                  backgroundColor: hoveredIndex === index ? "#0074cc" : "#0066cc",
                   color: "white",
-                  padding: "10px 20px",
-                  fontSize: "16px",
+                  padding: "20px 25px",
+                  fontSize: "18px",
                   fontWeight: "bold",
                   border: "none",
-                  borderRadius: "4px",
+                  borderRadius: "10px",
                   cursor: "pointer",
                   textAlign: "center",
-                  transition: "background-color 0.3s ease"
+                  transition: "transform 0.3s ease, background-color 0.3s ease",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                 }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() => handleSemesterClick(`/sem${semester.split(" ")[1]}`)}
+                onFocus={(e) => e.target.style.transform = "scale(1.05)"}
+                onBlur={(e) => e.target.style.transform = "scale(1)"}
               >
                 {semester}
               </button>
