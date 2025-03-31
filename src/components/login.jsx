@@ -1,49 +1,60 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Login.css';
-import Topbar from '../components/Topbar';
-import Footer from '../components/Footer';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
+import Footer from "../components/Footer";
+import Topbarnew from "./Topbarnew";
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const [passwordVisible, setPasswordVisible] = useState(false); // State for toggling password visibility
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
-
-  // Allowed users
-  const validUsers = {
-    "admin1": "123"
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const user = { username, password };
 
-    if (validUsers[username] && validUsers[username] === password) {
-      setMessage("Login successful.");
-
-      setTimeout(() => {
-        if (username === "admin1") {
-          navigate('/adminDash'); // Navigate to admin dashboard
+    fetch("http://localhost:8085/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Invalid credentials");
         }
-        setMessage(''); // Clear message after navigation
-      }, 1500); // Delay navigation for 1.5 seconds to show the message
-    } else {
-      setMessage('Incorrect credentials. Please try again.');
-    }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.token) {
+          console.log("Login successful:", data);
+          localStorage.setItem("authToken", data.token);
+          setMessage("Login successful.");
+          navigate("/adminDash");
+        } else {
+          setMessage("Invalid credentials. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error during login:", error);
+        setMessage("Login failed. Please check your username and password.");
+      });
   };
 
   const handleStudentLoginRedirect = () => {
-    navigate('/stuLogin'); // Navigate to the student login page
+    navigate("/stuLogin");
   };
 
   const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible); // Toggle the state for password visibility
+    setPasswordVisible(!passwordVisible);
   };
 
   return (
     <div>
-      <Topbar />
+      <Topbarnew />
       <div className="login-box">
         <h1>KDU SMS</h1>
         <h2>LOGIN</h2>
@@ -61,41 +72,44 @@ function Login() {
                 required
                 aria-label="Enter your username"
               />
-              <i className="fas fa-user"></i> {/* FontAwesome User Icon */}
+              <i className="fas fa-user"></i>
             </div>
           </div>
           <div className="input-group">
             <label htmlFor="password">Password</label>
             <div className="input-container">
               <input
-                type={passwordVisible ? 'text' : 'password'} // Toggle between text and password
+                type={passwordVisible ? "text" : "password"}
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 aria-label="Enter your password"
               />
-              <i 
-                className={`fas ${passwordVisible ? 'fa-eye-slash' : 'fa-eye'}`} 
-                onClick={togglePasswordVisibility} 
-                style={{ cursor: 'pointer' }} 
-              ></i> {/* Eye Icon to toggle password visibility */}
+              <i
+                className={`fas ${passwordVisible ? "fa-eye-slash" : "fa-eye"}`}
+                onClick={togglePasswordVisibility}
+                style={{ cursor: "pointer" }}
+              ></i>
             </div>
           </div>
-          <p className="forgot-password">
-    Forgot Password? <a href="/forgot-password" className="text-blue-500">Click Here</a>
-</p>
-          <button type="submit" className="login-button">Login</button>
+          <button type="submit" className="login-button">
+            Login
+          </button>
         </form>
+
+        <div className="register-link">
+          <p>
+            Don't have an account? <a href="/register" className="register-text">Register</a>
+          </p>
+        </div>
       </div>
 
-      {/* Student Login Button outside of the login box */}
       <div className="student-login-outside">
         <button onClick={handleStudentLoginRedirect} className="student-login-button">
           Student Login
         </button>
       </div>
-
       <Footer />
     </div>
   );

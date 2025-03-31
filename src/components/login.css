@@ -166,3 +166,20 @@ button:hover {
 .input-container input:focus + i.fas {
     color: #2980B9; /* Change color of the eye icon when input is focused */
 }
+.register-text{
+    color: #be2659;
+}
+.login-box h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800; /* Extra bold for emphasis */
+    font-size: 2.5rem; /* Slightly larger for better visibility */
+    text-transform: uppercase; /* Keeps text capitalized */
+    text-align: center; /* Centers the text */
+    color: #fff; /* White text for contrast */
+    background: linear-gradient(90deg, #080c44, #555405); /* Gradient effect */
+    padding: 15px 20px; /* Adds space around text */
+    border-radius: 8px; /* Soft rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+    letter-spacing: 2px; /* Increases spacing between letters */
+    display: inline-block; /* Ensures it wraps properly */
+}
