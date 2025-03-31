@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaSignOutAlt } from "react-icons/fa"; // Import Log out icon
-import logo from "../assets/logo.png"; // Adjust path as needed
+import { FaSignOutAlt } from "react-icons/fa"; 
+import logo from "../assets/logo.png"; 
 
 function Topbar() {
   const navigate = useNavigate(); // Initialize navigation

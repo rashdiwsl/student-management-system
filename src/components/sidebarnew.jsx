@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./sidebar.css"; // Ensure you have styles
+import "./sidebar.css"; 
 
 const Sidebarnew = () => {
   const navigate = useNavigate(); // Initialize navigation

@@ -151,7 +151,7 @@ const Profile = () => {
   );
 };
 
-// Styles remain the same as in your original code
+
 const styles = {
   container: {
     display: "flex",

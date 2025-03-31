@@ -92,7 +92,7 @@ function AddStudent({
   const handleSubmit = propOnSubmit || localHandleSubmit;
 
   const handleNotify = () => {
-    alert("Notification feature would be implemented here");
+    alert("Button Testing");
   };
 
   const containerStyle = {

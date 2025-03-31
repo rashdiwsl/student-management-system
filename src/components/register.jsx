@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // Import axios
+import axios from "axios"; 
 import "./register.css";
 import Topbarnew from "./Topbarnew";
 import Footer from "./Footer";

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo.png"; // Adjust path as needed
+import logo from "../assets/logo.png"; 
 
 function Topbarnew() {
   const topbarStyle = {

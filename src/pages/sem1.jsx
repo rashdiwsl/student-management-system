@@ -11,7 +11,7 @@ const Sem1 = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  // Fetch courses when the component mounts
+
   useEffect(() => {
     fetchCourses();
   }, []);

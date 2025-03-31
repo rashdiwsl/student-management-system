@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
 import Footer from "../components/Footer";
-import "./adminDash.css"; // Custom styles
-import logo from "../assets/logo.png"; // Adjust the path as needed
+import "./adminDash.css"; 
+import logo from "../assets/logo.png"; 
 
 function AdminDashboard() {
   const navigate = useNavigate(); // Initialize navigation
@@ -39,7 +39,7 @@ function AdminDashboard() {
           </div>
         </div>
 
-        {/* Footer */}
+
         <Footer />
       </div>
     </div>
